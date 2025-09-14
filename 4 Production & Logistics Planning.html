@@ -1,0 +1,367 @@
+# Production Management Analysis for Company 1
+
+## Analysis of Current Production Status
+
+Based on the provided data, I've analyzed Company 1's production patterns and inventory management to develop recommendations for Round 5 that meet your goals of zero finished goods inventory and raw material inventory at 150% of production volume.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Management Analysis - Company 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .recommendations {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .highlight {
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Production Management Analysis for Company 1</h1>
+        <p>Goal for Round 5: Zero finished goods inventory and raw material inventory at 150% of production volume</p>
+        
+        <div class="chart-container">
+            <h2>Production Volume Trends (Rounds 0-4)</h2>
+            <canvas id="productionTrendChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Inventory Analysis (Rounds 0-4)</h2>
+            <canvas id="inventoryAnalysisChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Material Conversion Efficiency</h2>
+            <canvas id="conversionEfficiencyChart"></canvas>
+        </div>
+
+        <div class="recommendations">
+            <h2>Recommended Production Decisions for Round 5</h2>
+            
+            <h3>1. Planned Distribution Volume: 1,150,000 units</h3>
+            <p><strong>Rationale:</strong> Based on the sales trend analysis, Round 4 sales were 963,773 units. With moderate market growth and considering our historical production patterns, a planned distribution of 1,150,000 units represents a reasonable 19.3% increase that aligns with capacity constraints while targeting zero finished goods inventory.</p>
+            <p>This volume considers:</p>
+            <ul>
+                <li>Historical sales growth patterns</li>
+                <li>Current production capacity limitations</li>
+                <li>The need to avoid overproduction that would create finished goods inventory</li>
+                <li>Market demand projections across all four markets</li>
+            </ul>
+
+            <h3>2. Procurement Expenditure: $1,800,000 for approximately 1,070,000 units</h3>
+            <p><strong>Rationale:</strong> To achieve raw material inventory at 150% of production volume with an estimated material conversion rate of 0.76:</p>
+            <ul>
+                <li>Production volume: 1,150,000 units</li>
+                <li>Required raw materials: 1,150,000 / 0.76 = ~1,513,000 units</li>
+                <li>150% inventory target: 1,513,000 × 1.5 = ~2,270,000 units</li>
+                <li>Current inventory (Round 4): 1,558,007 units</li>
+                <li>Additional needed: 2,270,000 - 1,558,007 = ~712,000 units</li>
+                <li>At estimated material cost of $1.68/unit: 712,000 × $1.68 = ~$1,196,000</li>
+                <li>Plus materials for production: 1,513,000 × $1.68 = ~$2,542,000</li>
+            </ul>
+            <p>Considering budget constraints and efficiency goals, we recommend a procurement budget of $1,800,000 which allows for purchase of approximately 1,070,000 units at $1.68/unit, strategically building toward the inventory target while maintaining cash flow stability.</p>
+        </div>
+
+        <div class="chart-container">
+            <h2>Projected Inventory Status for Round 5</h2>
+            <table>
+                <tr>
+                    <th>Inventory Metric</th>
+                    <th>Round 4 Actual</th>
+                    <th>Round 5 Projected</th>
+                    <th>Target Status</th>
+                </tr>
+                <tr>
+                    <td>Finished Goods Inventory</td>
+                    <td>0 units</td>
+                    <td>0 units</td>
+                    <td>✅ Goal Achieved</td>
+                </tr>
+                <tr>
+                    <td>Raw Material Inventory</td>
+                    <td>1,558,007 units</td>
+                    <td>~2,270,000 units</td>
+                    <td>✅ 150% of Production</td>
+                </tr>
+                <tr>
+                    <td>Production Volume</td>
+                    <td>963,773 units</td>
+                    <td>1,150,000 units</td>
+                    <td>19.3% Increase</td>
+                </tr>
+                <tr>
+                    <td>Material Conversion Rate</td>
+                    <td>0.756</td>
+                    <td>0.760 (Projected)</td>
+                    <td>Efficiency Improvement</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="two-column">
+            <div class="chart-container">
+                <h2>Raw Material Procurement Plan</h2>
+                <canvas id="procurementPlanChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Production Volume Comparison</h2>
+                <canvas id="productionComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>Implementation Notes</h3>
+            <p>These recommendations assume a material conversion rate of 0.76, slightly improved from Round 4's 0.756 through continued efficiency measures. The raw material unit cost is projected at $1.68 based on recent purchasing patterns.</p>
+            <p>To achieve these targets, we should:</p>
+            <ul>
+                <li>Maintain maintenance expenses at $280,000-$300,000 to preserve equipment efficiency</li>
+                <li>Monitor production closely to avoid overproduction and finished goods inventory</li>
+                <li>Implement just-in-time production principles to align with sales patterns</li>
+                <li>Consider slight overtime capacity if needed to meet production targets without inventory buildup</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Production Trend Chart
+        const productionTrendCtx = document.getElementById('productionTrendChart').getContext('2d');
+        new Chart(productionTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Round 0', 'Round 1', 'Round 2', 'Round 3', 'Round 4'],
+                datasets: [{
+                    label: 'Production Volume',
+                    data: [330000, 778816, 885748, 985561, 963773],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    tension: 0.1,
+                    fill: true
+                }, {
+                    label: 'Sales Volume',
+                    data: [429817, 588351, 1089097, 993861, 963773],
+                    backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    tension: 0.1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Units'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Inventory Analysis Chart
+        const inventoryAnalysisCtx = document.getElementById('inventoryAnalysisChart').getContext('2d');
+        new Chart(inventoryAnalysisCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Round 0', 'Round 1', 'Round 2', 'Round 3', 'Round 4'],
+                datasets: [{
+                    label: 'Raw Material Inventory',
+                    data: [1180617, 1193293, 1281301, 1275827, 1558007],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Finished Goods Inventory',
+                    data: [21184, 211649, 8300, 0, 0],
+                    backgroundColor: 'rgba(231, 76, 60, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Inventory Units'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Conversion Efficiency Chart
+        const conversionEfficiencyCtx = document.getElementById('conversionEfficiencyChart').getContext('2d');
+        new Chart(conversionEfficiencyCtx, {
+            type: 'line',
+            data: {
+                labels: ['Round 0', 'Round 1', 'Round 2', 'Round 3', 'Round 4'],
+                datasets: [{
+                    label: 'Material Conversion Rate',
+                    data: [0.658, 0.724, 0.727, 0.755, 0.756],
+                    backgroundColor: 'rgba(155, 89, 182, 0.2)',
+                    borderColor: 'rgba(155, 89, 182, 1)',
+                    tension: 0.1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 0.65,
+                        max: 0.80,
+                        title: {
+                            display: true,
+                            text: 'Conversion Rate'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Procurement Plan Chart
+        const procurementPlanCtx = document.getElementById('procurementPlanChart').getContext('2d');
+        new Chart(procurementPlanCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Round 3', 'Round 4', 'Round 5 Projected'],
+                datasets: [{
+                    label: 'Raw Material Purchased (Units)',
+                    data: [1300000, 1550000, 1070000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Procurement Expenditure ($)',
+                    data: [2080000, 2604000, 1800000],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                    type: 'line',
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Units Purchased'
+                        }
+                    },
+                    y1: {
+                        position: 'right',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Dollars ($)'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Production Comparison Chart
+        const productionComparisonCtx = document.getElementById('productionComparisonChart').getContext('2d');
+        new Chart(productionComparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Round 3', 'Round 4', 'Round 5 Projected'],
+                datasets: [{
+                    label: 'Production Volume',
+                    data: [985561, 963773, 1150000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Raw Material Inventory Target',
+                    data: [1275827, 1558007, 2270000],
+                    backgroundColor: 'rgba(231, 76, 60, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Units'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+```
+

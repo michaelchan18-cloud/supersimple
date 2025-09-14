@@ -1,0 +1,346 @@
+# Market 1 Competitive Analysis - Round 1
+
+Here's the complete competitive analysis for Company 1 in Market 1, Round 1, presented in HTML format:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market 1 Competitive Analysis - Round 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            padding-top: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 25px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            border-radius: 12px 12px 0 0 !important;
+            font-weight: 600;
+            padding: 15px 20px;
+        }
+        .table th {
+            font-weight: 600;
+            background-color: #f8f9fa;
+        }
+        .kpi-card {
+            background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+        .comparison-card {
+            background: linear-gradient(120deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+        .competitor-card {
+            background: linear-gradient(120deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+        }
+        .badge-success {
+            background-color: #28a745;
+        }
+        .badge-warning {
+            background-color: #ffc107;
+        }
+        .badge-danger {
+            background-color: #dc3545;
+        }
+        .badge-info {
+            background-color: #17a2b8;
+        }
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .highlight {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        .strategy-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #4caf50;
+        }
+        .competitor-table th {
+            background-color: #e9ecef;
+        }
+        h2, h3, h4 {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header text-center">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <div class="icon-container">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                </div>
+                <h1 class="mb-0">Market 1 Competitive Analysis - Round 1</h1>
+            </div>
+            <p class="lead mb-0">Company 1 vs. Key Competitors</p>
+        </div>
+
+        <!-- Competitor Identification -->
+        <div class="card competitor-card">
+            <div class="card-header d-flex align-items-center">
+                <i class="fas fa-users me-2"></i> Key Competitor Identification
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover competitor-table">
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Company</th>
+                                <th>Product Image</th>
+                                <th>Rationale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge bg-info">Closest</span></td>
+                                <td><strong>Company 3</strong></td>
+                                <td>0.46</td>
+                                <td>Value is nearly identical to Company 1 (0.45)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-success">Top</span></td>
+                                <td><strong>Company 6</strong></td>
+                                <td>0.60</td>
+                                <td>Has the highest Product Image score in the market</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-danger">Bottom</span></td>
+                                <td><strong>Company 2</strong></td>
+                                <td>0.26</td>
+                                <td>Has the lowest Product Image score in the market</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparative Analysis -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card comparison-card h-100">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-balance-scale me-2"></i> Vs. Closest Competitor (Company 3)
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Dimension</th>
+                                        <th>Company 1</th>
+                                        <th>Company 3</th>
+                                        <th>Analysis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Price</strong></td>
+                                        <td>$6.50</td>
+                                        <td>$6.00</td>
+                                        <td><span class="badge bg-danger">Weakness</span> Our price is 8.3% higher</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Product Quality</strong></td>
+                                        <td>0.08</td>
+                                        <td>0.08</td>
+                                        <td><span class="badge bg-secondary">Neutral</span> Quality is equal</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Product Image</strong></td>
+                                        <td>0.45</td>
+                                        <td>0.46</td>
+                                        <td><span class="badge bg-secondary">Neutral</span> Virtually identical</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Market Share</strong></td>
+                                        <td>8%</td>
+                                        <td>13%</td>
+                                        <td><span class="badge bg-danger">Weakness</span> Significantly lower volume</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card comparison-card h-100">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-trophy me-2"></i> Vs. Top Competitor (Company 6)
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Dimension</th>
+                                        <th>Company 1</th>
+                                        <th>Company 6</th>
+                                        <th>Analysis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Price</strong></td>
+                                        <td>$6.50</td>
+                                        <td>$5.80</td>
+                                        <td><span class="badge bg-danger">Critical Weakness</span> Our price is 12% higher</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Product Quality</strong></td>
+                                        <td>0.08</td>
+                                        <td>0.09</td>
+                                        <td><span class="badge bg-warning text-dark">Weakness</span> Slightly lower quality</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Product Image</strong></td>
+                                        <td>0.45</td>
+                                        <td>0.60</td>
+                                        <td><span class="badge bg-danger">Critical Weakness</span> Their brand is 33% stronger</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Market Share</strong></td>
+                                        <td>8%</td>
+                                        <td>18%</td>
+                                        <td><span class="badge bg-danger">Critical Weakness</span> They have more than double our share</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Improvement Strategy & KPIs -->
+        <div class="card kpi-card">
+            <div class="card-header d-flex align-items-center">
+                <i class="fas fa-bullseye me-2"></i> Improvement Strategy & Quantifiable KPIs
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="strategy-item">
+                            <h5><i class="fas fa-bullhorn text-primary me-2"></i> Improve Brand Perception</h5>
+                            <p class="mb-1">Increase marketing investment in Market 1 to close the gap with Company 6</p>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Current: $200,000</span>
+                                <span>Target: ≥$300,000</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" style="width: 67%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="strategy-item">
+                            <h5><i class="fas fa-tag text-success me-2"></i> Enhance Value Proposition</h5>
+                            <p class="mb-1">Slightly reduce price to be more competitive while maintaining quality perception</p>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Current: $6.50</span>
+                                <span>Target: $6.20-$6.30</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="strategy-item">
+                            <h5><i class="fas fa-flask text-info me-2"></i> Increase Product Quality</h5>
+                            <p class="mb-1">Boost R&D investment to improve product specs and match top competitors</p>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Current: $250,000</span>
+                                <span>Target: ≥$400,000</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 63%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="strategy-item">
+                            <h5><i class="fas fa-chart-pie text-warning me-2"></i> Grow Market Presence</h5>
+                            <p class="mb-1">Use improved marketing and pricing to capture a larger portion of sales</p>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Current: 8%</span>
+                                <span>Target: ≥12%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 67%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight mt-4">
+                    <h5><i class="fas fa-lightbulb text-warning me-2"></i> Strategic Summary</h5>
+                    <p class="mb-0">Company 1's main challenges in Market 1 are its higher price point and weaker brand image compared to top competitors. The strategy should focus on improving brand perception through increased marketing, slightly reducing price to improve value proposition, and investing in R&D to enhance product quality. The immediate goal is to increase market share from 8% to at least 12% in the next round.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-4 mb-5">
+            <p class="text-muted">Generated by Strategic Planning Department | Round 1 Analysis</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+```
+
+This HTML file presents a comprehensive competitive analysis for Company 1 in Market 1, Round 1. It includes:
+
+1. A header with the title and description
+2. A table identifying key competitors (closest, top, and bottom)
+3. Comparative analysis tables showing Company 1 vs. its closest competitor and the top competitor
+4. A detailed improvement strategy section with quantifiable KPIs and progress indicators
+5. A strategic summary highlighting the main challenges and recommended approach
+
+The design uses Bootstrap for responsiveness and includes custom styling with gradients, icons, and color-coded badges to enhance readability and visual appeal.

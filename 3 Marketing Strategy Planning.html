@@ -1,0 +1,340 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Strategy Analysis - Company 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .recommendations {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .highlight {
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Marketing Strategy Analysis for Company 1</h1>
+        <p>Goal: Achieve 130% of industry average market share with marketing expense-to-sales ratio > 10% in Round 5</p>
+        
+        <div class="chart-container">
+            <h2>Current Market Share Analysis (Round 4)</h2>
+            <canvas id="marketShareChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Marketing Efficiency Analysis (Round 3 vs Round 4)</h2>
+            <canvas id="marketingEfficiencyChart"></canvas>
+        </div>
+
+        <div class="recommendations">
+            <h2>Recommended Marketing Strategy for Round 5</h2>
+            <p>Based on the analysis of previous rounds and your objectives, I recommend the following actions:</p>
+            
+            <h3>1. Marketing Budget Allocation</h3>
+            <ul>
+                <li><strong>Total Marketing Budget:</strong> $750,000 (increased from $650,000 in R4)</li>
+                <li><strong>Market 1:</strong> $220,000 (focus on maintaining strong position)</li>
+                <li><strong>Market 2:</strong> $180,000 (increase investment to regain share)</li>
+                <li><strong>Market 3:</strong> $200,000 (strategic investment for growth)</li>
+                <li><strong>Market 4:</strong> $150,000 (optimize spending in our strongest market)</li>
+            </ul>
+            
+            <h3>2. Pricing Strategy</h3>
+            <ul>
+                <li><strong>Market 1:</strong> $6.40 (from $6.20) - Premium positioning</li>
+                <li><strong>Market 2:</strong> $6.20 (from $6.10) - Competitive positioning</li>
+                <li><strong>Market 3:</strong> $6.10 (from $6.00) - Value positioning</li>
+                <li><strong>Market 4:</strong> $7.10 (from $6.95) - Premium positioning</li>
+            </ul>
+            
+            <h3>3. Supporting Investments</h3>
+            <ul>
+                <li><strong>R&D Expense:</strong> $700,000 (from $600,000) to improve product quality</li>
+                <li><strong>Production Allocation:</strong> Increase by 8% overall to meet anticipated demand growth</li>
+            </ul>
+        </div>
+
+        <div class="chart-container">
+            <h2>Projected Income Statement for Round 5</h2>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Round 4 Actual</th>
+                    <th>Round 5 Projection</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Revenue</td>
+                    <td>$6,053,854</td>
+                    <td>$6,665,000</td>
+                    <td>+10.1%</td>
+                </tr>
+                <tr>
+                    <td>Marketing Expenses</td>
+                    <td>$650,000</td>
+                    <td>$750,000</td>
+                    <td>+15.4%</td>
+                </tr>
+                <tr>
+                    <td>Marketing-to-Sales Ratio</td>
+                    <td>10.7%</td>
+                    <td>11.3%</td>
+                    <td>+0.6%</td>
+                </tr>
+                <tr>
+                    <td>R&D Expenses</td>
+                    <td>$600,000</td>
+                    <td>$700,000</td>
+                    <td>+16.7%</td>
+                </tr>
+                <tr>
+                    <td>Projected Market Share</td>
+                    <td>13.72%</td>
+                    <td>16.90%</td>
+                    <td>+3.18%</td>
+                </tr>
+                <tr>
+                    <td>Estimated Net Profit</td>
+                    <td>-$110,240</td>
+                    <td>-$85,000</td>
+                    <td>Improvement</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="two-column">
+            <div class="chart-container">
+                <h2>Projected Market Share Growth</h2>
+                <canvas id="projectedShareChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Marketing Investment Comparison</h2>
+                <canvas id="marketingInvestmentChart"></canvas>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>Expected Outcomes</h3>
+            <p>This strategy is projected to increase our total market share to approximately 16.9%, which represents about 130% of the current industry average. The marketing expense-to-sales ratio would reach 11.3%, exceeding your 10% target.</p>
+            <p>The increased R&D investment should improve product quality, supporting premium pricing strategies. While we project continued negative net profit due to industry conditions, the increased scale and improved marketing efficiency should reduce losses by approximately 23%.</p>
+        </div>
+    </div>
+
+    <script>
+        // Market Share Chart
+        const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketShareCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Market 1', 'Market 2', 'Market 3', 'Market 4', 'Total'],
+                datasets: [{
+                    label: 'Company 1 Market Share (%)',
+                    data: [11.71, 15.70, 11.87, 18.51, 13.72],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Industry Average (%)',
+                    data: [12.5, 12.5, 12.5, 12.5, 12.5],
+                    backgroundColor: 'rgba(231, 76, 60, 0.7)'
+                }, {
+                    label: 'Target (130% of Average)',
+                    data: [16.25, 16.25, 16.25, 16.25, 16.25],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Market Share (%)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Marketing Efficiency Chart
+        const marketingEfficiencyCtx = document.getElementById('marketingEfficiencyChart').getContext('2d');
+        new Chart(marketingEfficiencyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Market 1', 'Market 2', 'Market 3', 'Market 4'],
+                datasets: [{
+                    label: 'Round 3 Marketing Spend',
+                    data: [200000, 150000, 160000, 190000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Round 4 Marketing Spend',
+                    data: [190000, 130000, 140000, 190000],
+                    backgroundColor: 'rgba(155, 89, 182, 0.7)'
+                }, {
+                    label: 'Round 3 Market Share',
+                    data: [12.52, 17.80, 11.50, 19.35],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                    type: 'line',
+                    yAxisID: 'y1'
+                }, {
+                    label: 'Round 4 Market Share',
+                    data: [11.71, 15.70, 11.87, 18.51],
+                    backgroundColor: 'rgba(241, 196, 15, 0.7)',
+                    type: 'line',
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Marketing Spend ($)'
+                        }
+                    },
+                    y1: {
+                        position: 'right',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Market Share (%)'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Projected Share Chart
+        const projectedShareCtx = document.getElementById('projectedShareChart').getContext('2d');
+        new Chart(projectedShareCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Market 1', 'Market 2', 'Market 3', 'Market 4', 'Total'],
+                datasets: [{
+                    label: 'Round 4 Actual',
+                    data: [11.71, 15.70, 11.87, 18.51, 13.72],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Round 5 Projected',
+                    data: [13.50, 17.20, 13.50, 20.00, 16.90],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Market Share (%)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Marketing Investment Chart
+        const marketingInvestmentCtx = document.getElementById('marketingInvestmentChart').getContext('2d');
+        new Chart(marketingInvestmentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Market 1', 'Market 2', 'Market 3', 'Market 4', 'Total'],
+                datasets: [{
+                    label: 'Round 4 Investment',
+                    data: [190000, 130000, 140000, 190000, 650000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)'
+                }, {
+                    label: 'Round 5 Proposed',
+                    data: [220000, 180000, 200000, 150000, 750000],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Marketing Investment ($)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+```
+

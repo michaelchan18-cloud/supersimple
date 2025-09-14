@@ -1,0 +1,260 @@
+# Financial Analysis Report for Company 1
+
+## 1. Round 4 Financial Statement Analysis and Recommendations
+
+Based on the Round 4 financial statements, here are recommendations to increase profitability in Round 5:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Analysis - Company 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .recommendations {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .highlight {
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial Analysis Report for Company 1</h1>
+        
+        <div class="chart-container">
+            <h2>1. Profitability Analysis (Round 4)</h2>
+            <canvas id="profitabilityChart"></canvas>
+            <div class="recommendations">
+                <h3>Recommendations for Round 5:</h3>
+                <ul>
+                    <li><strong>Reduce raw material inventory:</strong> Current inventory is $2,507,160 with 1.79 turnover vs industry 1.75. Target reduction of 15-20% to free up approximately $400,000-$500,000 in working capital.</li>
+                    <li><strong>Optimize marketing allocation:</strong> Reallocate spending from underperforming markets to higher potential markets. Target 5-7% improvement in marketing efficiency.</li>
+                    <li><strong>Control operating expenses:</strong> Admin expenses at $580,432 are high relative to revenue. Implement cost-saving measures targeting 8-10% reduction without impacting operations.</li>
+                    <li><strong>Improve pricing strategy:</strong> Current unit price $6.28 with gross margin 36.4% vs industry 34.4%. Consider selective price increases in stronger markets to improve margin by 2-3%.</li>
+                    <li><strong>Address cash flow issues:</strong> Zero cash balance with overdraft of $181,692. Improve cash collection and optimize payment terms to eliminate overdraft costs.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>2. Cost Structure Comparison (Round 3 vs Round 4)</h2>
+            <canvas id="costStructureChart"></canvas>
+            <div class="recommendations">
+                <h3>Cost Structure Analysis:</h3>
+                <p><strong>Successful Aspects:</strong> Reduced operating expenses per unit, slightly improved gross margin, better material conversion rate</p>
+                <p><strong>Unsuccessful Aspects:</strong> Higher material costs, increased management expenses, worsened operating profit</p>
+                <h3>Recommendations:</h3>
+                <ul>
+                    <li>Negotiate better material prices to reduce unit cost by 5-7%</li>
+                    <li>Streamline administrative processes to reduce management expenses by 8-10%</li>
+                    <li>Implement productivity measures to improve material conversion rate to 0.78+</li>
+                    <li>Conduct operational audit to identify specific areas for cost reduction</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>3. Financial Ratio Comparison vs Industry Average</h2>
+            <canvas id="ratioComparisonChart"></canvas>
+            <div class="recommendations">
+                <h3>Problem Areas:</h3>
+                <ul>
+                    <li>Liquidity: Current ratio 0.47 vs industry 0.62; Quick ratio 0.00 vs industry 0.15</li>
+                    <li>Debt management: Debt-to-equity 81.39% vs industry 69.49%; Times interest earned 0.14 vs industry 0.74</li>
+                    <li>Profitability: Net profit margin -1.82% vs industry -1.22%</li>
+                </ul>
+                <h3>Recommendations:</h3>
+                <ul>
+                    <li>Improve liquidity through better working capital management, targeting current ratio of 0.55+</li>
+                    <li>Reduce reliance on debt financing and develop debt reduction plan</li>
+                    <li>Focus on cost control to achieve positive operating profit</li>
+                    <li>Implement inventory optimization to improve turnover to 2.0+</li>
+                </ul>
+            </div>
+            
+            <h3>Financial Ratio Categories Explanation:</h3>
+            <div class="two-column">
+                <div class="highlight">
+                    <h4>Liquidity Ratios</h4>
+                    <p>Measure our ability to meet short-term obligations. Our low ratios indicate potential cash flow problems that could impact daily operations and supplier relationships.</p>
+                </div>
+                <div class="highlight">
+                    <h4>Asset Management Ratios</h4>
+                    <p>Show how efficiently we use assets to generate revenue. Our below-average ratios suggest inefficient use of inventory and fixed assets, tying up capital that could be better deployed.</p>
+                </div>
+                <div class="highlight">
+                    <h4>Debt Management Ratios</h4>
+                    <p>Indicate our reliance on borrowed funds and ability to service debt. Our high ratios suggest financial risk and limited capacity for additional borrowing if needed.</p>
+                </div>
+                <div class="highlight">
+                    <h4>Profitability Ratios</h4>
+                    <p>Measure our ability to generate returns. Our negative ratios indicate fundamental operational issues that need addressing to ensure long-term viability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Profitability Chart
+        const profitabilityCtx = document.getElementById('profitabilityChart').getContext('2d');
+        new Chart(profitabilityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Gross Margin', 'Operating Margin', 'Net Margin'],
+                datasets: [{
+                    label: 'Company 1 (%)',
+                    data: [36.40, 0.15, -1.82],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                }, {
+                    label: 'Industry Average (%)',
+                    data: [34.40, -1.22, -1.22],
+                    backgroundColor: 'rgba(255, 99, 132, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Percentage'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Cost Structure Chart
+        const costStructureCtx = document.getElementById('costStructureChart').getContext('2d');
+        new Chart(costStructureCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Material Cost/Unit', 'Operating Expenses/Unit', 'Management Expenses/Unit'],
+                datasets: [{
+                    label: 'Round 3',
+                    data: [1.414, 0.97, 1.36],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                }, {
+                    label: 'Round 4',
+                    data: [1.599, 0.95, 1.45],
+                    backgroundColor: 'rgba(255, 159, 64, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cost per Unit ($)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Ratio Comparison Chart
+        const ratioComparisonCtx = document.getElementById('ratioComparisonChart').getContext('2d');
+        new Chart(ratioComparisonCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Current Ratio', 'Quick Ratio', 'Inventory Turnover', 'Debt Ratio', 'Times Interest Earned', 'Net Profit Margin'],
+                datasets: [{
+                    label: 'Company 1',
+                    data: [0.47, 0.00, 1.79, 44.87, 0.14, -1.82],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                }, {
+                    label: 'Industry Average',
+                    data: [0.62, 0.15, 1.75, 41.00, 0.74, -1.22],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 2
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+```
