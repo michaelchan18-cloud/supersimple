@@ -1,0 +1,454 @@
+# MBS Round #4 Performance Evaluation
+
+I'll create an HTML page with visualizations and analysis of each company's performance in Round #4 of the MBS simulation.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBS Round #4 Performance Evaluation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .summary {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .summary h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .charts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-box h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .company-analysis {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .company-analysis h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .company-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .company-card {
+            border-left: 4px solid #4a6491;
+            padding: 15px;
+            background-color: #f9fafb;
+            border-radius: 4px;
+        }
+        
+        .company-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .profit-positive {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .profit-negative {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .recommendations {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .recommendations h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .rec-card {
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f9fafb;
+            border-top: 3px solid #3498db;
+        }
+        
+        .rec-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MBS Round #4 Performance Evaluation</h1>
+        <p class="subtitle">Winter Season Analysis & Strategic Recommendations</p>
+    </header>
+
+    <div class="container">
+        <section class="summary">
+            <h2>Executive Summary</h2>
+            <p>Round #4 (Winter) shows a challenging environment for most companies, with only Company 5 achieving profitability. The overall market conditions show a seasonal indicator of 89 (lowest of the year), price index of 107.8, and growth rate of 110.1. Market growth varies significantly across segments, with Market 3 showing the strongest growth (PLC: 1.90) and Market 4 the weakest (PLC: 1.37).</p>
+            <p>This analysis evaluates each company's performance from strategic, financial, production, and marketing perspectives, offering tailored recommendations for improvement.</p>
+        </section>
+
+        <section class="charts-container">
+            <div class="chart-box">
+                <h3>Net Profit by Company</h3>
+                <canvas id="profitChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Sales Volume by Company</h3>
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Market Share by Company</h3>
+                <canvas id="marketshareChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Cash Position Comparison</h3>
+                <canvas id="cashChart"></canvas>
+            </div>
+        </section>
+
+        <section class="company-analysis">
+            <h2>Company Performance Analysis</h2>
+            <div class="company-cards">
+                <div class="company-card">
+                    <h4>Company 1</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$110,240</span></p>
+                    <p><strong>Sales:</strong> 963,773 units</p>
+                    <p><strong>Market Share:</strong> 13.72%</p>
+                    <p><strong>Key Issue:</strong> Low profitability despite balanced operations</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 2</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$541,591</span></p>
+                    <p><strong>Sales:</strong> 950,000 units</p>
+                    <p><strong>Market Share:</strong> 13.52%</p>
+                    <p><strong>Key Issue:</strong> High financial expenses and low efficiency</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 3</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$1,637,791</span></p>
+                    <p><strong>Sales:</strong> 656,008 units</p>
+                    <p><strong>Market Share:</strong> 9.34%</p>
+                    <p><strong>Key Issue:</strong> Severe losses with low market penetration</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 4</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$687,886</span></p>
+                    <p><strong>Sales:</strong> 1,004,471 units</p>
+                    <p><strong>Market Share:</strong> 14.30%</p>
+                    <p><strong>Key Issue:</strong> High operational costs despite strong production</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 5</h4>
+                    <p><strong>Profit:</strong> <span class="profit-positive">$113,573</span></p>
+                    <p><strong>Sales:</strong> 1,409,845 units</p>
+                    <p><strong>Market Share:</strong> 20.07%</p>
+                    <p><strong>Key Strength:</strong> Only profitable company with high sales volume</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 6</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$266,772</span></p>
+                    <p><strong>Sales:</strong> 1,025,193 units</p>
+                    <p><strong>Market Share:</strong> 14.59%</p>
+                    <p><strong>Key Issue:</strong> Low marketing ROI and high warehousing costs</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 7</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$1,682,453</span></p>
+                    <p><strong>Sales:</strong> 350,000 units</p>
+                    <p><strong>Market Share:</strong> 4.98%</p>
+                    <p><strong>Key Issue:</strong> Critical situation with very low sales</p>
+                </div>
+                <div class="company-card">
+                    <h4>Company 8</h4>
+                    <p><strong>Profit:</strong> <span class="profit-negative">-$767,186</span></p>
+                    <p><strong>Sales:</strong> 665,626 units</p>
+                    <p><strong>Market Share:</strong> 9.48%</p>
+                    <p><strong>Key Issue:</strong> High inventory and cash flow problems</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommendations">
+            <h2>Strategic Recommendations</h2>
+            <div class="rec-grid">
+                <div class="rec-card">
+                    <h4>Marketing Strategy</h4>
+                    <p>Reallocate budgets to high-growth markets (Mkt1 & Mkt3). Focus on markets with higher marketing campaign effectiveness (Mkt1 & Mkt4). Adjust pricing based on market elasticity.</p>
+                </div>
+                <div class="rec-card">
+                    <h4>Production Optimization</h4>
+                    <p>Reduce raw material inventories to lower carrying costs. Improve conversion rates to minimize waste. Align production capacity with actual demand.</p>
+                </div>
+                <div class="rec-card">
+                    <h4>Financial Management</h4>
+                    <p>Reduce debt to lower interest expenses. Improve cash flow management. Consider equity financing for severely struggling companies.</p>
+                </div>
+                <div class="rec-card">
+                    <h4>Strategic Focus</h4>
+                    <p>Underperforming companies should consider market exit or consolidation. Focus on core competencies. Companies should specialize in markets where they have relative advantages.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>MBS Business Simulation Round #4 Analysis | Generated on: September 2025</p>
+    </footer>
+
+    <script>
+        // Profit Chart
+        const profitCtx = document.getElementById('profitChart').getContext('2d');
+        new Chart(profitCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5', 'Company 6', 'Company 7', 'Company 8'],
+                datasets: [{
+                    label: 'Net Profit ($)',
+                    data: [-110240, -541591, -1637791, -687886, 113573, -266772, -1682453, -767186],
+                    backgroundColor: [
+                        '#e74c3c', '#e74c3c', '#e74c3c', '#e74c3c', 
+                        '#2ecc71', '#e74c3c', '#e74c3c', '#e74c3c'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Net Profit by Company'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Dollars ($)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Sales Chart
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5', 'Company 6', 'Company 7', 'Company 8'],
+                datasets: [{
+                    label: 'Sales Volume',
+                    data: [963773, 950000, 656008, 1004471, 1409845, 1025193, 350000, 665626],
+                    backgroundColor: '#3498db',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Sales Volume by Company'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Units Sold'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Market Share Chart
+        const marketshareCtx = document.getElementById('marketshareChart').getContext('2d');
+        new Chart(marketshareCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5', 'Company 6', 'Company 7', 'Company 8'],
+                datasets: [{
+                    label: 'Market Share %',
+                    data: [13.72, 13.52, 9.34, 14.30, 20.07, 14.59, 4.98, 9.48],
+                    backgroundColor: [
+                        '#3498db', '#2ecc71', '#e74c3c', '#f1c40f',
+                        '#9b59b6', '#1abc9c', '#e67e22', '#34495e'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Market Share Distribution'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Cash Position Chart
+        const cashCtx = document.getElementById('cashChart').getContext('2d');
+        new Chart(cashCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5', 'Company 6', 'Company 7', 'Company 8'],
+                datasets: [{
+                    label: 'Cash at End of Round ($)',
+                    data: [0, 814099, 415494, 310202, 581805, 1300484, 576565, 0],
+                    backgroundColor: '#f1c40f',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Cash Position by Company'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Dollars ($)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+This HTML file provides a comprehensive analysis of the MBS Round #4 performance with:
+
+1. A clean, professional design with a responsive layout
+2. Visualizations of key metrics (profit, sales, market share, cash position)
+3. Company-by-company performance analysis
+4. Strategic recommendations for improvement
+5. Interactive charts using Chart.js
+
+The analysis highlights that only Company 5 was profitable in this round, with most others experiencing significant losses. The visualizations clearly show the performance differences between companies, and the recommendations provide actionable insights for improving performance in the next round.
+
+You can open this HTML file directly in any modern web browser to view the complete analysis.
